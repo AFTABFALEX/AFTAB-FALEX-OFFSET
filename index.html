@@ -132,12 +132,62 @@
             <div class="buttons"><a class="btn primary" href="tel:05541297063">Call Now</a></div>
           </div>
         </div>
-      </div>
+      </div><div style="max-width:600px;margin:25px auto 10px;padding:20px;background:#fff;border:1px solid #e4e4e4;border-radius:18px;text-align:center;box-shadow:0 6px 20px #00000010;">
+
+  <h2 style="color:#006c3c;margin:0 0 8px;font-size:24px;">⭐ Rating & Review</h2>
+
+  <p style="margin:0 0 15px;color:#666;font-size:15px;">
+    हमारी सेवा के बारे में अपनी राय दें
+  </p>
+
+  <div id="stars" style="font-size:30px;letter-spacing:3px;margin-bottom:12px;">
+    <span onclick="setRating(1)">☆</span>
+    <span onclick="setRating(2)">☆</span>
+    <span onclick="setRating(3)">☆</span>
+    <span onclick="setRating(4)">☆</span>
+    <span onclick="setRating(5)">☆</span>
+  </div>
+
+  <input id="reviewName" type="text" placeholder="आपका नाम"
+    style="width:90%;padding:11px;margin:5px;border:1px solid #ddd;border-radius:10px;font-size:15px;">
+
+  <textarea id="reviewText" placeholder="अपना Review लिखें..."
+    style="width:90%;height:70px;padding:11px;margin:5px;border:1px solid #ddd;border-radius:10px;font-size:15px;"></textarea>
+
+  <button onclick="submitReview()"
+    style="background:#006c3c;color:white;border:0;padding:11px 22px;border-radius:10px;font-weight:bold;font-size:15px;">
+    Submit Review
+  </button>
+
+</div>
     </section>
   </main>
 
   <footer>
     © 2026 Aftab Falex Offset. All Rights Reserved.
   </footer>
+<script>
+let selectedRating = 0;
+
+function setRating(rating) {
+  selectedRating = rating;
+
+  document.querySelectorAll('#stars span').forEach((star, i) => {
+    star.textContent = i < rating ? '★' : '☆';
+  });
+}
+
+function submitReview() {
+  const name = document.getElementById('reviewName').value.trim();
+  const review = document.getElementById('reviewText').value.trim();
+
+  if (!selectedRating || !name || !review) {
+    alert('कृपया Rating, नाम और Review पूरा भरें।');
+    return;
+  }
+
+  alert('धन्यवाद! आपका Review प्राप्त हुआ।');
+}
+</script>
 </body>
 </html>
